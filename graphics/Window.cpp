@@ -1,10 +1,10 @@
-#include "../../src/graphics/Window.h"
+#include "Window.h"
 
 #include <iostream>
 #include <string>
 
-#include "../../src/graphics/Drawable.h"
-#include "../../src/graphics/SpriteTexture.h"
+#include "Drawable.h"
+#include "SpriteTexture.h"
 
 void Window::clear()
 {
@@ -42,11 +42,15 @@ void Window::render(Drawable* e)
 	for (int i = 0; i < spriteSize; ++i)
 	{
 		const int& y{ (i / e->sprite->width) + yOffset };
-		const int& x{ (i % e->sprite->width) + xOffset };
+
+		int x{ (i % e->sprite->width) + xOffset };
+
+		// flips texture order over y axis, eg : "../" -> "/.."
+		if (e->reverse)
+			x = (((spriteSize - i) - 1) % e->sprite->width) + xOffset;
 
 		if ((x >= 0 && x < WINDOW_WIDTH) && (y >= 0 && y < WINDOW_HEIGHT))	// no out of bounds
 			this->screen[y][x] = e->sprite->texture[i];
-			//this->screen[(i / e->sprite->width) + yOffset][(i % e->sprite->width) + xOffset] = e->sprite->texture[i];
 	}
 }
 

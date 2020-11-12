@@ -1,6 +1,6 @@
-#include "../events/EventHandler.h"
+#include "EventHandler.h"
 
-#include "../events//Event.h"
+#include "Event.h"
 
 #include "../states/StateMachine.h"
 #include "../graphics/SpriteSheet.h"

@@ -1,15 +1,18 @@
 #pragma once
 
-#include "../../src/states/State.h"
+#include "State.h"
+
+#include "../graphics/TabSet.h"
 
 class MainState : public State
 {
 public:
-	// members
+	TabSet tabSet;
+	int playerX{};
 
 public:
 	MainState(Window& window, SpriteSheet& s, EventHandler& e);
-	~MainState();
+	~MainState() override;
 
 	void virtual init();
 	void virtual terminate();

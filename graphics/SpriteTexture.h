@@ -1,16 +1,15 @@
 #pragma once
 
-#include <memory>
+#include <vector>
 
 class SpriteTexture
 {
 public:
-	std::unique_ptr<char[]> texture;
+	std::vector<char> texture;
 	const int id;
 	int width;
 	int height;
 
 public:
-	SpriteTexture(int w, int h, int id) : width(w), height(h), id(id), texture(new char[width * height]) {}
-
+	SpriteTexture(int w, int h, int id) : texture(w*h), width(w), height(h), id(id) {}
 };

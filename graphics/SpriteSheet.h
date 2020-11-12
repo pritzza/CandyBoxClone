@@ -4,13 +4,23 @@
 
 #include "SpriteTexture.h"
 
+enum SPRITE
+{
+	PLAYER,
+	MAIN_TAB_not_a_solution,
+	OTHER_TAB,
+	LAST_TAB,
+};
+
 class SpriteSheet
 {
 public:
-	std::unordered_map<int, SpriteTexture> sprites;
+	std::unordered_map<int, SpriteTexture*> sprites;
 
 public:
-	SpriteSheet();
+	~SpriteSheet();
+
+	void terminate();
 
 	// returns sprite* from unordered map under the id key
 	SpriteTexture* getSprite(int id);
@@ -18,8 +28,10 @@ public:
 	// puts spriteTexture into unordered map behind unique id key
 	int loadPlayerSprite();
 	int loadMainTabSprite();
+	int loadOtherTabSprite();
+	int loadLastTabSprite();
 
 private:
-	void addSprite(int id, SpriteTexture&& sprite);
+	void addSprite(int id, SpriteTexture* sprite);
 
 };

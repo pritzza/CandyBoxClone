@@ -2,10 +2,10 @@
 
 #include <vector>
 
-#include "../src/graphics/Window.h"
-#include "../src/graphics/SpriteSheet.h"
-#include "../src/states/StateMachine.h"
-#include "../src/events/EventHandler.h"
+#include "graphics/Window.h"
+#include "graphics/SpriteSheet.h"
+#include "states/StateMachine.h"
+#include "events/EventHandler.h"
 
 class Game
 {

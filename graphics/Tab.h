@@ -13,7 +13,7 @@ public:
 	bool visible{ false };
 
 public:
-	//Tab(SpriteTexture* sprite, int stateID); //: Drawable{ sprite, 0,0 }, stateID(stateID) {}
+	Tab(SpriteTexture* sprite, int stateID) : Drawable{ sprite, 0, 0 }, stateID(stateID) {}
 
 	void click();
 	void setVisibility(bool visible);

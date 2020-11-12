@@ -1,7 +1,5 @@
 #pragma once
 
-//#include "../graphics/TabSet.h"
-
 enum STATE
 {
 	NULL_STATE,	// default value of add/removeID to prevent mistakes in state adding/removing
@@ -21,8 +19,6 @@ public:
 	Window& w;
 	SpriteSheet& ss;
 	EventHandler& eh;
-
-	//inline static TabSet ts;
 
 public:
 	State(Window& w, SpriteSheet& ss, EventHandler& eh) : w(w), ss(ss), eh(eh) { }

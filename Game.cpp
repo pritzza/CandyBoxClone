@@ -1,11 +1,11 @@
-#include "../src/Game.h"
+#include "Game.h"
 
 #include <chrono>
 #include <iostream>
 
-#include "../src/states/State.h"
-#include "../src/events/StateEvent.h"
-#include "../src/states/MainState.h"
+#include "states/State.h"
+#include "events/StateEvent.h"
+#include "states/MainState.h"
 
 void Game::start()
 {
@@ -51,6 +51,8 @@ void Game::gameLoop()
 			++tick;
 		}
 		++frames;
-		//running = false;
+
+		//if (tick == Game::FPS)
+		//	running = false;
 	}
 }

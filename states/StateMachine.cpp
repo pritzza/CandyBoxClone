@@ -1,4 +1,4 @@
-#include "../../src/states/StateMachine.h"
+#include "StateMachine.h"
 
 StateMachine::~StateMachine()
 {
