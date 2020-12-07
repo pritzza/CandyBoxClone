@@ -8,7 +8,7 @@ public:
 
 
 public:
-	BattleState(Window& window, SpriteSheet& s, EventHandler& e);
+	BattleState();
 	~BattleState() override;
 
 	void virtual init();

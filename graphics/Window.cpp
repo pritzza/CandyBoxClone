@@ -35,22 +35,25 @@ void Window::draw()
 
 void Window::render(Drawable* e)
 {
-	const int& xOffset{ e->xPos };
-	const int& yOffset{ e->yPos };
-	const int& spriteSize{ e->sprite->width * e->sprite->height };
-
-	for (int i = 0; i < spriteSize; ++i)
+	if (e->sprite != nullptr)
 	{
-		const int& y{ (i / e->sprite->width) + yOffset };
+		const int& xOffset{ e->xPos };
+		const int& yOffset{ e->yPos };
+		const int& spriteSize{ e->sprite->width * e->sprite->height };
 
-		int x{ (i % e->sprite->width) + xOffset };
+		for (int i = 0; i < spriteSize; ++i)
+		{
+			const int& y{ (i / e->sprite->width) + yOffset };
 
-		// flips texture order over y axis, eg : "../" -> "/.."
-		if (e->reverse)
-			x = (((spriteSize - i) - 1) % e->sprite->width) + xOffset;
+			int x{ (i % e->sprite->width) + xOffset };
 
-		if ((x >= 0 && x < WINDOW_WIDTH) && (y >= 0 && y < WINDOW_HEIGHT))	// no out of bounds
-			this->screen[y][x] = e->sprite->texture[i];
+			// flips texture order over y axis, eg : "../" -> "/.."
+			if (e->reverse)
+				x = (((spriteSize - i) - 1) % e->sprite->width) + xOffset;
+
+			if ((x >= 0 && x < WINDOW_WIDTH) && (y >= 0 && y < WINDOW_HEIGHT))	// no out of bounds
+				this->screen[y][x] = e->sprite->texture[i];
+		}
 	}
 }
 
