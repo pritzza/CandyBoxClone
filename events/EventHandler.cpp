@@ -2,6 +2,10 @@
 
 #include "Event.h"
 
+#include "../states/StateMachine.h"
+#include "../graphics/SpriteSheet.h"
+#include "../graphics/Window.h"
+
 EventHandler::~EventHandler()
 {
 	// double check that there's no events to prevent memory learks

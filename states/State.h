@@ -11,17 +11,17 @@ enum STATE
 class Window;
 class SpriteSheet;
 class EventHandler;
-class Player;
+class TabSet;
 
 class State
 {
 public:
-	inline static Window* w;
-	inline static SpriteSheet* ss;
-	inline static EventHandler* eh;
-	inline static Player* p;
+	Window& w;
+	SpriteSheet& ss;
+	EventHandler& eh;
 
 public:
+	State(Window& w, SpriteSheet& ss, EventHandler& eh) : w(w), ss(ss), eh(eh) { }
 	virtual ~State() = default;
 
 	void virtual init() = 0;		// loads and sets up everything the state needs

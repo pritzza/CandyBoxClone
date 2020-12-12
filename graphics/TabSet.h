@@ -6,22 +6,25 @@
 
 enum TABS
 {
-	MAIN_TAB_ID,	// _TAB_ID suffix to prevent name collision
-	OTHER_TAB_ID,
-	LAST_TAB_ID,
+	MAIN_TAB,	// _TAB suffix to prevent name collision
+	OTHER,
+	LAST,
 };
 
 class Window;
+class SpriteSheet;
 
 class TabSet
 {
 public:
+	SpriteSheet* ss;
+
 	std::vector<Tab> tabs;
-	int WW;	// window width
-	int WH;	// window height
+	int WW;
+	int WH;
 
 public:
-	TabSet(int w, int h) : WW(w), WH(h) {}
+	void init(SpriteSheet& ss, int w, int h);
 
 	void update();
 	void render(Window& w);

@@ -9,7 +9,7 @@
 
 #include "../../src/events/StateEvent.h"
 
-BattleState::BattleState()
+BattleState::BattleState(Window& w, SpriteSheet& s, EventHandler& e) : State(w, s, e)
 {
 	init();
 }
@@ -32,7 +32,7 @@ void BattleState::handleInput()
 {
 	//std::cout << "\nHandle Input()\n";
 	if (GetAsyncKeyState(VK_SPACE) & 0x8000)
-		eh->addEvent(new StateEvent(STATE::MAIN, STATE_EVENT_TYPE::CHANGE));
+		eh.addEvent(new StateEvent(STATE::MAIN, STATE_EVENT_TYPE::CHANGE));
 }
 
 void BattleState::update(const int FPS, const int tick)
@@ -43,7 +43,7 @@ void BattleState::update(const int FPS, const int tick)
 void BattleState::render()
 {
 	//std::cout << "\nRender()\n";
-	w->clear();
+	w.clear();
 	//w.render(&player);
-	w->draw();
+	w.draw();
 }

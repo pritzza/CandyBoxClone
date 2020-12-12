@@ -1,16 +1,20 @@
 #include "StateEvent.h"
 
 #include "../states/StateMachine.h"
-
 #include "../states/State.h"
-
 #include "../states/MainState.h"
 #include "../states/BattleState.h"
 
-void StateEvent::startGame()
+void StateEvent::init(Window* w, SpriteSheet* ss, EventHandler* eh, StateMachine* sm)
 {
+	// assign static members
+	this->w = w;
+	this->ss = ss;
+	this->eh = eh;
+	this->sm = sm;
+
 	// set up first gamestate
-	sm->addState(new MainState(), STATE::MAIN);
+	sm->addState(new MainState(*w, *ss, *eh), STATE::MAIN);
 	sm->setState(id);
 }
 
@@ -22,10 +26,10 @@ void StateEvent::handleEvent()
 		switch (id)
 		{
 		case STATE::MAIN:
-			sm->addState(new MainState(), STATE::MAIN);
+			sm->addState(new MainState(*w, *ss, *eh), STATE::MAIN);
 			break;
 		case STATE::BATTLE:
-			sm->addState(new BattleState(), STATE::BATTLE);
+			sm->addState(new BattleState(*w, *ss, *eh), STATE::BATTLE);
 			break;
 		}
 		break;

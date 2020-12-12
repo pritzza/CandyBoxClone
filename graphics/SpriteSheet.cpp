@@ -18,8 +18,7 @@ SpriteTexture* SpriteSheet::getSprite(int id)
 
 void SpriteSheet::addSprite(int id, SpriteTexture* sprite)
 {
-    if (this->sprites.find(id) == sprites.end())
-        this->sprites.emplace(id, sprite);
+    this->sprites.emplace(id, sprite);
 }
 
 int SpriteSheet::loadPlayerSprite()
@@ -30,7 +29,7 @@ int SpriteSheet::loadPlayerSprite()
 
     const int w{ 4 };
     const int h{ 3 };
-    const int id{ SPRITE::PLAYER_SPRITE };
+    const int id{ SPRITE::PLAYER };
     SpriteTexture* p = new SpriteTexture{ w, h, id };
 
     for (int i = 0; i < p->texture.size(); ++i)
@@ -48,7 +47,7 @@ int SpriteSheet::loadMainTabSprite()
 
     const int w{ 8 };
     const int h{ 3 };
-    const int id{ SPRITE::MAIN_TAB_SPRITE };
+    const int id{ SPRITE::MAIN_TAB_not_a_solution };
     SpriteTexture* mt = new SpriteTexture{ w, h, id };
 
     for (int i = 0; i < mt->texture.size(); ++i)
@@ -66,7 +65,7 @@ int SpriteSheet::loadOtherTabSprite()
 
     const int w{ 8 };
     const int h{ 3 };
-    const int id{ SPRITE::OTHER_TAB_SPRITE };
+    const int id{ SPRITE::OTHER_TAB };
     SpriteTexture* ot = new SpriteTexture{ w, h, id };
 
     for (int i = 0; i < ot->texture.size(); ++i)
@@ -84,7 +83,7 @@ int SpriteSheet::loadLastTabSprite()
 
     const int w{ 7 };
     const int h{ 3 };
-    const int id{ SPRITE::LAST_TAB_SPRITE };
+    const int id{ SPRITE::LAST_TAB };
     SpriteTexture* lt = new SpriteTexture{ w, h, id };
 
     for (int i = 0; i < lt->texture.size(); ++i)
@@ -92,20 +91,4 @@ int SpriteSheet::loadLastTabSprite()
 
     this->addSprite(lt->id, lt);
     return lt->id;
-}
-
-int SpriteSheet::loadCandiesTextSprite()
-{
-    static const char txt[] = { 'C' }; // just some dummy/placeholder text. Should always be overwritten
-
-    const int w{ 1 };
-    const int h{ 1 };
-    const int id{ SPRITE::CANDIES_SPRITE };
-    SpriteTexture* ct = new SpriteTexture{ w, h, id };
-
-    for (int i = 0; i < ct->texture.size(); ++i)
-        ct->texture[i] = txt[i];
-
-    this->addSprite(ct->id, ct);
-    return ct->id;
 }

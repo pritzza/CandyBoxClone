@@ -13,9 +13,9 @@ public:
 	char screen[WINDOW_HEIGHT][WINDOW_WIDTH];
 
 public:
-	void clear();			// removes everything from the screen
-	void draw();			// prints final contents of the screen to the window of the terminal
-	void render(Drawable* s);	// adds sprites to the screen/window
+	void clear();			// removes everything from the window
+	void draw();			// prints final contents of the window
+	void render(Drawable* s);	// adds sprites to the window
 
 	void moveTo(int x, int y);	// moves terminal cursor
 };

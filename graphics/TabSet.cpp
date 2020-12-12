@@ -1,8 +1,27 @@
 #include "TabSet.h"
 
+#include "SpriteTexture.h"
 #include "SpriteSheet.h"
-
 #include "Window.h"
+
+void TabSet::init(SpriteSheet& ss, int w, int h)
+{
+	this->ss = &ss;
+	this->WW = w;
+	this->WH = h;
+
+	Tab mt(ss.getSprite(ss.loadMainTabSprite()), TABS::MAIN_TAB);
+	Tab ot(ss.getSprite(ss.loadOtherTabSprite()), TABS::OTHER);
+	Tab lt(ss.getSprite(ss.loadLastTabSprite()), TABS::LAST);
+
+	mt.setVisibility(true);
+	ot.setVisibility(true);
+	lt.setVisibility(true);
+
+	addTab(mt);
+	addTab(ot);
+	addTab(lt);
+}
 
 void TabSet::update()
 {

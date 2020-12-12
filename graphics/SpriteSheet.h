@@ -6,11 +6,10 @@
 
 enum SPRITE
 {
-	PLAYER_SPRITE,
-	MAIN_TAB_SPRITE,	// i desperatly need to rename these to prevent enum name collisions
-	OTHER_TAB_SPRITE,
-	LAST_TAB_SPRITE,
-	CANDIES_SPRITE,
+	PLAYER,
+	MAIN_TAB_not_a_solution,
+	OTHER_TAB,
+	LAST_TAB,
 };
 
 class SpriteSheet
@@ -31,7 +30,6 @@ public:
 	int loadMainTabSprite();
 	int loadOtherTabSprite();
 	int loadLastTabSprite();
-	int loadCandiesTextSprite();
 
 private:
 	void addSprite(int id, SpriteTexture* sprite);

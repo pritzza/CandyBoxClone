@@ -7,10 +7,11 @@
 class MainState : public State
 {
 public:
+	TabSet tabSet;
 	int playerX{};
 
 public:
-	MainState();
+	MainState(Window& window, SpriteSheet& s, EventHandler& e);
 	~MainState() override;
 
 	void virtual init();

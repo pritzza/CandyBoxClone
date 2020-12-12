@@ -5,6 +5,12 @@
 
 #include "../events/StateEvent.h"
 
+//Tab::Tab(SpriteTexture* sprite, int stateID)
+//{
+//	this->sprite = sprite;
+//	this->stateID = stateID;
+//}
+
 void Tab::click()
 {
 	eh->addEvent(new StateEvent(stateID, STATE_EVENT_TYPE::CHANGE));
