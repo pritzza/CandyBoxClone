@@ -8,7 +8,7 @@
 
 void Window::clear()
 {
-	static constexpr char clearChar{ '.' };
+	const char clearChar{ '.' };
 
 	// iterate through the map to get rid of anything from last frame
 	for (int y = 0; y < WINDOW_HEIGHT; ++y)
@@ -44,15 +44,17 @@ void Window::render(Drawable* e)
 		for (int i = 0; i < spriteSize; ++i)
 		{
 			const int& y{ (i / e->sprite->width) + yOffset };
-
 			int x{ (i % e->sprite->width) + xOffset };
 
 			// flips texture order over y axis, eg : "../" -> "/.."
 			if (e->reverse)
 				x = (((spriteSize - i) - 1) % e->sprite->width) + xOffset;
 
+			const char transparent{ '%' };	// where every this char is found, it is not an empty ' ', instead it is transparent and will show through
+
 			if ((x >= 0 && x < WINDOW_WIDTH) && (y >= 0 && y < WINDOW_HEIGHT))	// no out of bounds
-				this->screen[y][x] = e->sprite->texture[i];
+				if (e->sprite->texture[i].symbol != transparent)
+					this->screen[y][x] = e->sprite->texture[i].symbol;
 		}
 	}
 }

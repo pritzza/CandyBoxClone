@@ -19,5 +19,5 @@ void Text::updateSprite()
 	text = beginning + std::to_string(quantity) + end;
 
 	for (int i = 0; i < text.length(); ++i)
-		sprite->texture[i] = text[i];
+		sprite->texture[i].symbol = text[i];
 }

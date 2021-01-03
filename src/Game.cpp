@@ -43,12 +43,12 @@ void Game::gameLoop()
 	while (running)
 	{
 		elapsed = std::chrono::steady_clock::now() - currentTime;
-		Sleep((1.0 / (Game::FPS - (elapsed.count() / 1'000'000'000.0f))) * 100);	// sleeps a tenth of the time of a frame, kinda useless but eases cpu
+		//Sleep((1.0 / (Game::FPS - (elapsed.count() / 1'000'000'000.0f))) * 100);	// sleeps a tenth of the time of a frame, kinda useless but eases cpu
 
 		if (elapsed.count() / 1'000'000'000.0f > 1.0f / Game::FPS)	// if the time since last frame is greater than the game's frame rate
 		{
 			std::cout << elapsed.count() / 1'000'000'000.0f << 
-				" s, State: " << stateMachine.getCurrentStateID() << " : " << stateMachine.states.size() << " states, " << std::endl;
+				" s, State: " << stateMachine.getCurrentStateID() << " : " << stateMachine.states.size() << " states, sprites loaded: " << sheet.sprites.size() << std::endl;
 
 			currentTime = std::chrono::steady_clock::now();
 

@@ -8,7 +8,7 @@ class Window
 {
 public:
 	static constexpr int WINDOW_WIDTH{ 64 };
-	static constexpr int WINDOW_HEIGHT{ 16 };
+	static constexpr int WINDOW_HEIGHT{ 24 };
 
 	char screen[WINDOW_HEIGHT][WINDOW_WIDTH];
 

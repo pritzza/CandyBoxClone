@@ -1,0 +1,59 @@
+Here's how to make sprites and areas:
+
+The first line is the width of the sprite or area
+The second line is the height of the sprite or area
+
+For sprites, it takes 2 characters for 1 ingame ASCII characters/tiles
+
+The first character (symbol) is what is drawn, and the second character (solid) is its solidity value
+The symbol can be any ASCII character, including space to represent an empty tile. You can also use % for transparent characters
+The solid can be anything, but only a period will make it solid. I usually just use spaces to represent non solid tiles
+
+Example:
+----------------
+7
+5
+% % % _.% % _.
+% % /.% % /.% 
+% % O.-.O.% % 
+% % % % % % % 
+% >.-.-.<.% % 
+----------------
+
+Makes:
+----------------
+   _  _
+  /  / 
+  O-O
+
+ >--<
+----------------
+Where all the visible tiles are solid and the empty space surrounding the glasses/mouth/face-thing isn't solid.
+
+
+For areas, it takes 3 characters for 1 ingame ASCII characters.
+
+The first two characters are the same as sprites, but the last represent its special tile value.
+You can mostly ignore these, ill update this when i get special tile values working, but it'll be for exiting area and other stuff.
+
+Example:
+---------------------
+12
+5
+%  %  %  %  %  %  %  %  %  %  %  % e
+%  %  %  %  %  %  %  %  %  %  %  % e
+%  %  %  %  %  %  _. _. %  %  %  % e
+%  %  %  _. _. /.  .  . \. %  %  % e
+_. _. /.  .  .  .  .  .  . \. _. _.e
+---------------------
+
+Makes:
+---------------------
+            
+            
+      __    
+   __/  \   
+__/      \__
+---------------------
+Where the little hill is solid, around it is nonsolid and transparent, and the right most column of the map/area are "exit special tiles".
+I'll make the exit tile have you "successfully return from your quest" or whatever upon player contact.

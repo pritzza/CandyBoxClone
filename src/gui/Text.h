@@ -24,5 +24,5 @@ public:
 	{}
 
 	void update();
-	void updateSprite();
+	void updateSprite();	// the sprites of Text have to be updated every time their quantity is incremented
 };

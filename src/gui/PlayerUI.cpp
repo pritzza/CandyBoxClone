@@ -5,18 +5,20 @@
 void PlayerUI::init()
 {
 	int x{ 2 };
-	int y{ 4 };
-	candies.sprite = Drawable::spriteSheet->getSprite(Drawable::spriteSheet->loadCandiesCounterSprite());
-	candies.setPos(x, y);
+	int y{ 6 };
 
-	lollipops.sprite = Drawable::spriteSheet->getSprite(Drawable::spriteSheet->loadLollipopsCounterSprite());
+	candies.sprite = Drawable::spriteSheet->getSprite(Drawable::spriteSheet->loadSprite(SPRITE::CANDIES_COUNTER_SPRITE));
+	candies.setPos(x, y);
+	
+	lollipops.sprite = Drawable::spriteSheet->getSprite(Drawable::spriteSheet->loadSprite(SPRITE::LOLLIPOPS_COUNTER_SPRITE));
 	lollipops.setPos(x, y + 1);
 }
 
 void PlayerUI::update()
 {
-	this->candies.update();
+	this->candies.update();		// update just calls updateSprite()
 	this->lollipops.update();
+	
 	//this->ts.update();
 }
 

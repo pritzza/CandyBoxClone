@@ -4,7 +4,6 @@
 #include "../gui/TabSet.h"
 
 #include "../graphics/SpriteSheet.h"
-
 #include "../graphics/Window.h"
 
 #include "../player/Resources.h"
